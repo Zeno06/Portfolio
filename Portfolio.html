@@ -1,0 +1,1079 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>John Anthony Ricardo Q. Bermejo| Full-Stack Developer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=Fraunces:ital,wght@0,700;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: #0c0e13;
+        --surface: #13161d;
+        --surface2: #191c25;
+        --border: #232738;
+        --accent: #4ade80;
+        --accent2: #38bdf8;
+        --text: #c8cdd8;
+        --text-dim: #555d72;
+        --white: #eef0f6;
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      html {
+        scroll-behavior: smooth;
+      }
+      body {
+        font-family: "Outfit", sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        font-weight: 300;
+        overflow-x: hidden;
+      }
+      ::-webkit-scrollbar {
+        width: 4px;
+      }
+      ::-webkit-scrollbar-track {
+        background: var(--bg);
+      }
+      ::-webkit-scrollbar-thumb {
+        background: var(--border);
+      }
+
+      /* NAV */
+      nav {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        background: rgba(12, 14, 19, 0.88);
+        backdrop-filter: blur(14px);
+        border-bottom: 1px solid var(--border);
+      }
+      .nav-inner {
+        max-width: 1040px;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 16px 32px;
+      }
+      .logo {
+        font-family: "Fraunces", serif;
+        font-size: 1.3rem;
+        color: var(--white);
+        text-decoration: none;
+      }
+      .logo span {
+        color: var(--accent);
+      }
+      .nav-links {
+        display: flex;
+        gap: 28px;
+        list-style: none;
+      }
+      .nav-links a {
+        font-size: 0.78rem;
+        color: var(--text-dim);
+        text-decoration: none;
+        transition: color 0.2s;
+      }
+      .nav-links a:hover {
+        color: var(--accent);
+      }
+      .nav-dot {
+        display: flex;
+        align-items: center;
+        gap: 7px;
+        font-size: 0.68rem;
+        color: var(--accent);
+        font-weight: 500;
+      }
+      .dot {
+        width: 7px;
+        height: 7px;
+        border-radius: 50%;
+        background: var(--accent);
+        box-shadow: 0 0 8px var(--accent);
+        animation: pulse 2s ease infinite;
+      }
+      @keyframes pulse {
+        0%,
+        100% {
+          opacity: 1;
+        }
+        50% {
+          opacity: 0.3;
+        }
+      }
+
+      /* LAYOUT */
+      .wrap {
+        max-width: 1040px;
+        margin: 0 auto;
+        padding: 0 32px;
+      }
+
+      /* HERO */
+      #hero {
+        max-width: 1040px;
+        margin: 0 auto;
+        padding: 100px 32px 80px;
+        border-bottom: 1px solid var(--border);
+        animation: up 0.7s ease both;
+      }
+      @keyframes up {
+        from {
+          opacity: 0;
+          transform: translateY(18px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      .hero-tag {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        font-size: 0.75rem;
+        font-weight: 500;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--accent);
+        margin-bottom: 20px;
+      }
+      .hero-tag::before {
+        content: "";
+        width: 28px;
+        height: 1px;
+        background: var(--accent);
+      }
+
+      h1 {
+        font-family: "Fraunces", serif;
+        font-size: clamp(2.6rem, 6vw, 5rem);
+        line-height: 1.05;
+        letter-spacing: -0.02em;
+        color: var(--white);
+        margin-bottom: 22px;
+      }
+      h1 .ghost {
+        color: transparent;
+        -webkit-text-stroke: 1px var(--text-dim);
+        font-style: italic;
+      }
+
+      .hero-bio {
+        font-size: 0.98rem;
+        line-height: 1.9;
+        color: var(--text-dim);
+        max-width: 520px;
+        margin-bottom: 40px;
+      }
+
+      .hero-btns {
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-family: "Outfit", sans-serif;
+        font-size: 0.78rem;
+        font-weight: 500;
+        text-decoration: none;
+        padding: 12px 26px;
+        border-radius: 7px;
+        transition: all 0.2s;
+        cursor: pointer;
+        border: none;
+        letter-spacing: 0.02em;
+      }
+      .btn-green {
+        background: var(--accent);
+        color: #0c0e13;
+      }
+      .btn-green:hover {
+        filter: brightness(1.1);
+        transform: translateY(-1px);
+      }
+      .btn-ghost {
+        border: 1px solid var(--border);
+        color: var(--text);
+        background: transparent;
+      }
+      .btn-ghost:hover {
+        border-color: var(--accent);
+        color: var(--accent);
+      }
+
+      /* SECTIONS */
+      section {
+        padding: 80px 0;
+        border-bottom: 1px solid var(--border);
+      }
+      .sec-tag {
+        font-size: 0.67rem;
+        font-weight: 500;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: var(--accent);
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        margin-bottom: 10px;
+      }
+      .sec-tag::after {
+        content: "";
+        height: 1px;
+        background: var(--border);
+        width: 56px;
+      }
+      h2 {
+        font-family: "Fraunces", serif;
+        font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+        color: var(--white);
+        letter-spacing: -0.02em;
+        margin-bottom: 48px;
+      }
+
+      /* TECH STACK */
+      .stack-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+        gap: 10px;
+      }
+      .stack-card {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        padding: 20px 14px;
+        text-align: center;
+        transition:
+          border-color 0.2s,
+          transform 0.2s;
+      }
+      .stack-card:hover {
+        border-color: var(--accent);
+        transform: translateY(-3px);
+      }
+      .s-icon {
+        font-size: 1.75rem;
+        margin-bottom: 8px;
+        display: block;
+      }
+      .s-name {
+        font-size: 0.78rem;
+        font-weight: 500;
+        color: var(--white);
+      }
+      .s-type {
+        font-size: 0.6rem;
+        color: var(--text-dim);
+        margin-top: 2px;
+        letter-spacing: 0.04em;
+      }
+
+      /* PROJECTS */
+      .proj-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+        gap: 16px;
+      }
+      .proj-card {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        transition:
+          transform 0.2s,
+          border-color 0.2s;
+      }
+      .proj-card:hover {
+        transform: translateY(-4px);
+        border-color: var(--surface2);
+      }
+
+      .proj-thumb {
+        height: 150px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2.8rem;
+      }
+      .t1 {
+        background: linear-gradient(135deg, #0d1f1d, #091812);
+      }
+      .t2 {
+        background: linear-gradient(135deg, #0d1120, #08091a);
+      }
+      .t3 {
+        background: linear-gradient(135deg, #1c0e00, #140a00);
+      }
+      .t4 {
+        background: linear-gradient(135deg, #0d0815, #08050f);
+      }
+
+      .proj-body {
+        padding: 22px;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        flex: 1;
+      }
+      .proj-cat {
+        font-size: 0.62rem;
+        font-weight: 500;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--accent2);
+      }
+      .proj-name {
+        font-family: "Fraunces", serif;
+        font-size: 1.15rem;
+        color: var(--white);
+        line-height: 1.2;
+      }
+      .proj-desc {
+        font-size: 0.77rem;
+        line-height: 1.75;
+        color: var(--text-dim);
+        flex: 1;
+      }
+      .proj-tags {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+        margin-top: 6px;
+      }
+      .tag {
+        font-size: 0.6rem;
+        font-weight: 500;
+        background: var(--surface2);
+        border: 1px solid var(--border);
+        color: var(--text-dim);
+        padding: 3px 9px;
+        border-radius: 100px;
+      }
+      .proj-actions {
+        display: flex;
+        gap: 8px;
+        margin-top: 14px;
+        border-top: 1px solid var(--border);
+        padding-top: 14px;
+      }
+      .pa {
+        flex: 1;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 6px;
+        font-size: 0.72rem;
+        font-weight: 500;
+        text-decoration: none;
+        padding: 9px 0;
+        border-radius: 7px;
+        transition: all 0.2s;
+      }
+      .pa.demo {
+        background: var(--accent);
+        color: #0c0e13;
+      }
+      .pa.demo:hover {
+        filter: brightness(1.1);
+      }
+      .pa.code {
+        border: 1px solid var(--border);
+        color: var(--text);
+      }
+      .pa.code:hover {
+        border-color: var(--accent2);
+        color: var(--accent2);
+      }
+
+      /* CERTIFICATIONS */
+      .cert-list {
+        border: 1px solid var(--border);
+        border-radius: 12px;
+        overflow: hidden;
+      }
+      .cert-row {
+        display: flex;
+        align-items: center;
+        gap: 18px;
+        padding: 20px 24px;
+        background: var(--surface);
+        border-bottom: 1px solid var(--border);
+        transition: background 0.2s;
+      }
+      .cert-row:last-child {
+        border-bottom: none;
+      }
+      .cert-row:hover {
+        background: var(--surface2);
+      }
+      .cert-ico {
+        width: 44px;
+        height: 44px;
+        border-radius: 10px;
+        background: var(--surface2);
+        border: 1px solid var(--border);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.3rem;
+        flex-shrink: 0;
+      }
+      .cert-info {
+        flex: 1;
+      }
+      .cert-name {
+        font-size: 0.88rem;
+        font-weight: 500;
+        color: var(--white);
+        margin-bottom: 3px;
+      }
+      .cert-org {
+        font-size: 0.7rem;
+        color: var(--text-dim);
+      }
+      .cert-yr {
+        font-size: 0.68rem;
+        color: var(--accent);
+        font-weight: 600;
+        flex-shrink: 0;
+      }
+
+      /* CONTACT */
+      #contact {
+        border-bottom: none;
+      }
+      .contact-wrap {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 56px;
+        align-items: start;
+      }
+      .contact-left h2 {
+        margin-bottom: 12px;
+      }
+      .contact-left p {
+        font-size: 0.88rem;
+        line-height: 1.9;
+        color: var(--text-dim);
+        margin-bottom: 28px;
+      }
+      .socials {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+      .soc-link {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 14px 18px;
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: 8px;
+        text-decoration: none;
+        color: var(--text);
+        font-size: 0.78rem;
+        transition:
+          border-color 0.2s,
+          color 0.2s;
+      }
+      .soc-link:hover {
+        border-color: var(--accent);
+        color: var(--accent);
+      }
+      .soc-left {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+      }
+      .soc-ico {
+        font-size: 1.05rem;
+      }
+      .soc-sub {
+        font-size: 0.68rem;
+        color: var(--text-dim);
+        margin-top: 1px;
+      }
+      .soc-arr {
+        font-size: 0.9rem;
+        color: var(--text-dim);
+        transition:
+          transform 0.2s,
+          color 0.2s;
+      }
+      .soc-link:hover .soc-arr {
+        transform: translate(2px, -2px);
+        color: var(--accent);
+      }
+
+      .cf {
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+      }
+      .fg {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+      }
+      .fg label {
+        font-size: 0.62rem;
+        font-weight: 500;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--text-dim);
+      }
+      .fg input,
+      .fg textarea {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        color: var(--white);
+        font-family: "Outfit", sans-serif;
+        font-size: 0.85rem;
+        font-weight: 300;
+        padding: 12px 16px;
+        border-radius: 8px;
+        outline: none;
+        resize: none;
+        transition: border-color 0.2s;
+      }
+      .fg input:focus,
+      .fg textarea:focus {
+        border-color: var(--accent);
+      }
+      .fg input::placeholder,
+      .fg textarea::placeholder {
+        color: var(--text-dim);
+      }
+      .btn-send {
+        align-self: flex-start;
+        background: var(--accent);
+        color: #0c0e13;
+        font-family: "Outfit", sans-serif;
+        font-size: 0.78rem;
+        font-weight: 600;
+        padding: 13px 28px;
+        border-radius: 8px;
+        border: none;
+        cursor: pointer;
+        transition:
+          filter 0.2s,
+          transform 0.15s;
+      }
+      .btn-send:hover {
+        filter: brightness(1.1);
+        transform: translateY(-1px);
+      }
+
+      /* FOOTER */
+      footer {
+        padding: 26px 32px;
+        text-align: center;
+        font-size: 0.7rem;
+        color: var(--text-dim);
+        border-top: 1px solid var(--border);
+      }
+      footer span {
+        color: var(--accent);
+      }
+
+      /* RESPONSIVE */
+      @media (max-width: 768px) {
+        .nav-links {
+          display: none;
+        }
+        .nav-inner,
+        #hero,
+        .wrap {
+          padding-left: 20px;
+          padding-right: 20px;
+        }
+        h1 {
+          font-size: 2.4rem;
+        }
+        .stack-grid {
+          grid-template-columns: repeat(3, 1fr);
+        }
+        .proj-grid {
+          grid-template-columns: 1fr;
+        }
+        .contact-wrap {
+          grid-template-columns: 1fr;
+        }
+        footer {
+          padding: 20px;
+        }
+      }
+      #stack {
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.stack-group {
+  margin: 40px 0 20px;
+  font-size: 1.5rem;
+  color: #fff;
+}
+
+.stack-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 20px;
+}
+
+.stack-card {
+  backdrop-filter: blur(12px);
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  padding: 20px;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255,255,255,0.1);
+  cursor: pointer;
+}
+
+.stack-card img {
+  width: 50px;
+  height: 50px;
+  margin-bottom: 10px;
+}
+
+.s-name {
+  font-weight: 600;
+  color: #fff;
+}
+
+/*  Hover Effect */
+.stack-card:hover {
+  transform: translateY(-8px) scale(1.05);
+  box-shadow: 0 0 20px rgba(0, 255, 255, 0.4),
+              0 0 40px rgba(0, 255, 255, 0.2);
+  border: 1px solid rgba(0,255,255,0.5);
+}
+
+/* Optional: glowing icon */
+.stack-card:hover img {
+  filter: drop-shadow(0 0 10px rgba(0,255,255,0.7));
+}
+    </style>
+  </head>
+  <body>
+    <!-- NAV -->
+    <nav>
+      <div class="nav-inner">
+        <a href="#" class="logo">John Anthony Ricardo Q. Bermejo<span>.</span></a>
+        <ul class="nav-links">
+          <li><a href="#stack">Stack</a></li>
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#certifications">Certifications</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <div class="nav-dot">
+          <div class="dot"></div>
+          Available for hire
+        </div>
+      </div>
+    </nav>
+
+    <!-- HERO -->
+    <div id="hero">
+      <p class="hero-tag">Full-Stack Developer </p>
+      <h1>
+        Hi, I'm John Anthony Ricardo Q. Bermejo.<br /><span class="ghost">I build for the web.</span>
+      </h1>
+      <p class="hero-bio">
+        I design and develop complete web applications — from pixel-perfect
+        frontends to scalable backends. 
+      </p>
+      <div class="hero-btns">
+        <a href="#projects" class="btn btn-green">View Projects →</a>
+        <a href="#contact" class="btn btn-ghost">Get in Touch</a>
+      </div>
+    </div>
+
+  <!-- TECH STACK -->
+<section id="stack">
+  <div class="wrap">
+    <div class="sec-tag">Tech Stack</div>
+    <h2>Tools I Work With</h2>
+
+    <!-- FRONTEND -->
+    <h3 class="stack-group">Frontend</h3>
+    <div class="stack-grid">
+      <div class="stack-card">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg">
+        <div class="s-name">HTML</div>
+      </div>
+      <div class="stack-card">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg">
+        <div class="s-name">CSS</div>
+      </div>
+      <div class="stack-card">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg">
+        <div class="s-name">JavaScript</div>
+      </div>
+      <div class="stack-card">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg">
+        <div class="s-name">React</div>
+      </div>
+      <div class="stack-card">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg">
+        <div class="s-name">Next.js</div>
+      </div>
+      <div class="stack-card">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg">
+        <div class="s-name">TypeScript</div>
+      </div>
+    </div>
+
+    <!-- BACKEND -->
+    <h3 class="stack-group">Backend</h3>
+    <div class="stack-grid">
+      <div class="stack-card">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg">
+        <div class="s-name">PHP</div>
+      </div>
+      <div class="stack-card">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-original.svg">
+        <div class="s-name">Laravel</div>
+      </div>
+      <div class="stack-card">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg">
+        <div class="s-name">Java</div>
+      </div>
+      <div class="stack-card">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg">
+        <div class="s-name">MySQL</div>
+      </div>
+      <div class="stack-card">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg">
+        <div class="s-name">MongoDB</div>
+      </div>
+      <div class="stack-card">
+        <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/prisma/prisma-original.svg">
+        <div class="s-name">Prisma</div>
+      </div>
+    </div>
+
+   
+ <!-- TOOLS -->
+<h3 class="stack-group">Tools & Deployment</h3>
+<div class="stack-grid">
+  
+  <div class="stack-card">
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg">
+    <div class="s-name">Git</div>
+  </div>
+
+  <div class="stack-card">
+    <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg">
+    <div class="s-name">GitHub</div>
+  </div>
+
+  <div class="stack-card">
+    <img src="https://assets.vercel.com/image/upload/front/favicon/vercel/180x180.png">
+    <div class="s-name">Vercel</div>
+  </div>
+
+<div class="stack-card">
+  <img src="https://cdn.simpleicons.org/render/46E3B7" alt="Render Logo">
+  <div class="s-name">Render</div>
+</div>
+
+</div>
+</section>
+
+    <!-- PROJECTS -->
+    <section id="projects">
+      <div class="wrap">
+        <div class="sec-tag">Projects</div>
+        <h2>Things I've Built</h2>
+        <div class="proj-grid">
+          <div class="proj-card">
+            <div class="proj-thumb t1">🛒</div>
+            <div class="proj-body">
+              <div class="proj-cat">E-Commerce</div>
+              <div class="proj-name">ShopNest</div>
+              <div class="proj-desc">
+                A full-featured online store with product search, cart
+                management, Stripe checkout, and an admin dashboard for
+                inventory.
+              </div>
+              <div class="proj-tags">
+                <span class="tag">Next.js</span
+                ><span class="tag">TypeScript</span
+                ><span class="tag">PostgreSQL</span
+                ><span class="tag">Stripe</span>
+              </div>
+              <div class="proj-actions">
+                <a
+                  href="https://example.com"
+                  target="_blank"
+                  rel="noopener"
+                  class="pa demo"
+                  >Live Demo</a
+                >
+                <a
+                  href="https://github.com"
+                  target="_blank"
+                  rel="noopener"
+                  class="pa code"
+                  >Source Code</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <div class="proj-card">
+            <div class="proj-thumb t2">📋</div>
+            <div class="proj-body">
+              <div class="proj-cat">Productivity</div>
+              <div class="proj-name">TaskFlow</div>
+              <div class="proj-desc">
+                Drag-and-drop project management app with real-time
+                collaboration, task assignments, and progress tracking across
+                teams.
+              </div>
+              <div class="proj-tags">
+                <span class="tag">React</span><span class="tag">Node.js</span
+                ><span class="tag">Socket.io</span
+                ><span class="tag">MongoDB</span>
+              </div>
+              <div class="proj-actions">
+                <a
+                  href="https://example.com"
+                  target="_blank"
+                  rel="noopener"
+                  class="pa demo"
+                >
+                  Live Demo</a
+                >
+                <a
+                  href="https://github.com"
+                  target="_blank"
+                  rel="noopener"
+                  class="pa code"
+                  >Source Code</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <div class="proj-card">
+            <div class="proj-thumb t3">💬</div>
+            <div class="proj-body">
+              <div class="proj-cat">Social / Chat</div>
+              <div class="proj-name">ChatBox</div>
+              <div class="proj-desc">
+                Real-time chat app with private messaging, group rooms, file
+                sharing, and read receipts built on WebSockets.
+              </div>
+              <div class="proj-tags">
+                <span class="tag">React</span><span class="tag">Express</span
+                ><span class="tag">Socket.io</span
+                ><span class="tag">MongoDB</span>
+              </div>
+              <div class="proj-actions">
+                <a
+                  href="https://example.com"
+                  target="_blank"
+                  rel="noopener"
+                  class="pa demo"
+                >
+                  Live Demo</a
+                >
+                <a
+                  href="https://github.com"
+                  target="_blank"
+                  rel="noopener"
+                  class="pa code"
+                  >Source Code</a
+                >
+              </div>
+            </div>
+          </div>
+
+          <div class="proj-card">
+            <div class="proj-thumb t4">📊</div>
+            <div class="proj-body">
+              <div class="proj-cat">Dashboard</div>
+              <div class="proj-name">DataLens</div>
+              <div class="proj-desc">
+                Analytics dashboard with interactive charts, dark mode, CSV
+                import, and filterable data tables for business insights.
+              </div>
+              <div class="proj-tags">
+                <span class="tag">Next.js</span><span class="tag">Recharts</span
+                ><span class="tag">Tailwind</span
+                ><span class="tag">Supabase</span>
+              </div>
+              <div class="proj-actions">
+                <a
+                  href="https://example.com"
+                  target="_blank"
+                  rel="noopener"
+                  class="pa demo"
+                  >Live Demo</a
+                >
+                <a
+                  href="https://github.com"
+                  target="_blank"
+                  rel="noopener"
+                  class="pa code"
+                  >Source Code</a
+                >
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CERTIFICATIONS -->
+    <section id="certifications">
+      <div class="wrap">
+        <div class="sec-tag">Certifications</div>
+        <h2>Credentials</h2>
+        <div class="cert-list">
+          <div class="cert-row">
+            <div class="cert-ico">🏅</div>
+            <div class="cert-info">
+              <div class="cert-name">AWS Certified Developer – Associate</div>
+              <div class="cert-org">Amazon Web Services</div>
+            </div>
+            <div class="cert-yr">2024</div>
+          </div>
+          <div class="cert-row">
+            <div class="cert-ico">🏅</div>
+            <div class="cert-info">
+              <div class="cert-name">Meta Front-End Developer Certificate</div>
+              <div class="cert-org">Meta / Coursera</div>
+            </div>
+            <div class="cert-yr">2023</div>
+          </div>
+          <div class="cert-row">
+            <div class="cert-ico">🏅</div>
+            <div class="cert-info">
+              <div class="cert-name">
+                Node.js Application Development (LFW212)
+              </div>
+              <div class="cert-org">Linux Foundation</div>
+            </div>
+            <div class="cert-yr">2023</div>
+          </div>
+          <div class="cert-row">
+            <div class="cert-ico">🏅</div>
+            <div class="cert-info">
+              <div class="cert-name">
+                JavaScript Algorithms and Data Structures
+              </div>
+              <div class="cert-org">freeCodeCamp</div>
+            </div>
+            <div class="cert-yr">2022</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact">
+      <div class="wrap">
+        <div class="sec-tag">Contact</div>
+        <div class="contact-wrap">
+          <div class="contact-left">
+            <h2>Let's work<br />together.</h2>
+            <p>
+              Have a project in mind, a question, or just want to say hi? Drop
+              me a message and I'll get back to you within 24 hours.
+            </p>
+            <div class="socials">
+              <a href="mailto:harobermejo@gmail.com" class="soc-link">
+                <div class="soc-left">
+                  <span class="soc-ico">✉️</span>
+                  <div>
+                    <div>harobermejo@gmail.com</div>
+                    <div class="soc-sub">Email me directly</div>
+                  </div>
+                </div>
+                <span class="soc-arr">↗</span>
+              </a>
+              <a href="" target="_blank" rel="noopener" class="soc-link">
+                <div class="soc-left">
+                  <span class="soc-ico">🐙</span>
+                  <div>
+                    <div>github.com</div>
+                    <div class="soc-sub">See my code</div>
+                  </div>
+                </div>
+                <span class="soc-arr">↗</span>
+              </a>
+              <a href="" target="_blank" rel="noopener" class="soc-link">
+                <div class="soc-left">
+                  <span class="soc-ico">💼</span>
+                  <div>
+                    <div>linkedin</div>
+                    <div class="soc-sub">Connect with me</div>
+                  </div>
+                </div>
+                <span class="soc-arr">↗</span>
+              </a>
+            </div>
+          </div>
+
+          <div class="cf">
+            <div class="fg">
+              <label>Your Name</label>
+              <input type="text" placeholder="Juan Dela Cruz" />
+            </div>
+            <div class="fg">
+              <label>Email Address</label>
+              <input type="email" placeholder="juan@example.com" />
+            </div>
+            <div class="fg">
+              <label>Subject</label>
+              <input
+                type="text"
+                placeholder="Project inquiry, collaboration, question…"
+              />
+            </div>
+            <div class="fg">
+              <label>Message</label>
+              <textarea
+                rows="5"
+                placeholder="Tell me about your project or concern..."
+              ></textarea>
+            </div>
+            <button class="btn-send">Send Message →</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+      <p>
+        © 2026 <span>John Anthony Ricardo Q. Bermejo</span> · Full-Stack
+        Developer
+      </p>
+    </footer>
+  </body>
+</html>
